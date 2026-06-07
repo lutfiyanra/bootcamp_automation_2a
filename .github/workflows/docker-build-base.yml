@@ -13,13 +13,15 @@ jobs:
 
       - name: Login to Docker Hub
         env:
+        #   DOCKERHUB_USERNAME: $lutfiyanra
           DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        #   YOUR_REPO_NAME: ""
         run: echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 
       - name: Build and Push Base Image
         run: |
-          docker build -t $DOCKERHUB_USERNAME/YOUR_REPO_NAME:base .
-          docker push $DOCKERHUB_USERNAME/YOUR_REPO_NAME:base
+          docker build -t $DOCKERHUB_USERNAME/bootcamp2a:base .
+          docker push $DOCKERHUB_USERNAME/bootcamp2a:base
         env:
           DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
