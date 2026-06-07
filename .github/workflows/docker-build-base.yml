@@ -22,6 +22,6 @@ jobs:
       - name: Build and Push Base Image
         run: |
           docker build -t $DOCKERHUB_USERNAME/automation:base .
-          docker push $DOCKERHUB_USERNAME/automation:base
+          docker push $DOCKERHUB_USERNAME/automation2a:base
         env:
           DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
